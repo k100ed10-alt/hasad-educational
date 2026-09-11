@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>لوحة المعلم — حَصاد التعليمية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="teacher">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-mark">ح</span>
+        حَصاد التعليمية
+      </a>
+      <nav class="nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="teacher.html">لوحة المعلم</a>
+        <a href="join.html">دخول الطالب</a>
+      </nav>
+    </div>
+  </header>
+  <main class="page-wrap">
+    <div class="container" style="display:grid;gap:20px">
+      <div>
+        <h1>لوحة المعلم</h1>
+        <p class="lead" style="margin:0">أنشئ شعبة لمادة، انسخ الرمز لطلابك، ثم أضف حصة أسبوعية برابط يوتيوب.</p>
+      </div>
+      <div class="panel">
+        <h2>إنشاء شعبة جديدة</h2>
+        <p class="hint">الشعبة تمثل صفًا أو مجموعة لمادة واحدة. كل شعبة لها رمز دخول واحد يفتح كل الحصص الأسبوعية.</p>
+        <form id="course-form">
+          <div class="form-grid">
+            <div class="field">
+              <label for="subject">المادة</label>
+              <select id="subject" required></select>
+            </div>
+            <div class="field">
+              <label for="teacher">اسم المعلم</label>
+              <input id="teacher" placeholder="أ. محمد الشقصي" />
+            </div>
+            <div class="field full">
+              <label for="title">عنوان الشعبة</label>
+              <input id="title" required placeholder="مثال: رياضيات الصف الخامس — الفصل الدراسي الأول" />
+            </div>
+          </div>
+          <div style="margin-top:16px">
+            <button class="btn btn-primary" type="submit">إنشاء الشعبة وتوليد الرمز</button>
+          </div>
+        </form>
+      </div>
+      <div class="panel">
+        <h2>إضافة حصة أسبوعية</h2>
+        <p class="hint">الصق رابط فيديو يوتيوب. سيشاهده الطالب داخل الموقع دون مغادرة الصفحة.</p>
+        <form id="lesson-form">
+          <div class="form-grid">
+            <div class="field full">
+              <label for="lesson-course">الشعبة</label>
+              <select id="lesson-course" required></select>
+            </div>
+            <div class="field">
+              <label for="week">رقم الأسبوع</label>
+              <input id="week" type="number" min="1" max="40" value="1" />
+            </div>
+            <div class="field">
+              <label for="lesson-title">عنوان الحصة</label>
+              <input id="lesson-title" required placeholder="موضوع درس هذا الأسبوع" />
+            </div>
+            <div class="field full">
+              <label for="lesson-desc">وصف مختصر</label>
+              <textarea id="lesson-desc" placeholder="ماذا سيتعلم الطالب في هذه الحصة؟"></textarea>
+            </div>
+            <div class="field full">
+              <label for="video">رابط فيديو يوتيوب</label>
+              <input id="video" required placeholder="https://www.youtube.com/watch?v=..." />
+            </div>
+          </div>
+          <div style="margin-top:16px">
+            <button class="btn btn-accent" type="submit">حفظ الحصة الأسبوعية</button>
+          </div>
+        </form>
+      </div>
+      <div>
+        <h2>شعبك ورموز الدخول</h2>
+        <div id="courses-list" class="list"></div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">حَصاد التعليمية · لوحة المعلم</div>
+  </footer>
+  <div class="toast"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
